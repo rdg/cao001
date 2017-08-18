@@ -1,12 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
-
-class Line {
-public:
-	ofPoint a;
-	ofPoint b;
-};
+#include "system/Strand.h"
 
 class ofApp : public ofBaseApp {
 
@@ -27,15 +22,7 @@ public:
 	void dragEvent(ofDragInfo dragInfo);
 	void gotMessage(ofMessage msg);
 
-	ofPolyline line;
-
-	vector <ofPoint> drawnPoints;
-	vector < Line > lines;
-
-	// for 3d lines ...
-	ofNode baseNode;
-	ofNode childNode;
-	ofNode grandChildNode;
+	Strand strand;
 
 	// for camera
 	ofEasyCam cam;

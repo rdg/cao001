@@ -36,9 +36,9 @@ public:
 	ofNode baseNode;
 	ofNode childNode;
 	ofNode grandChildNode;
-	// ofPolyline line;
-	ofEasyCam cam;
 
+	// for camera
+	ofEasyCam cam;
 	int maxDistance;
 	int camEnabled;
 	int followEnabled;

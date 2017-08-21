@@ -17,10 +17,14 @@ public:
 	void render();
 	void addLine();
 	void extendLine();
+	void reset();
+	void setInfluence(float value);
+	const float & getInfluence();
 	const ofPoint & getPoint(int offset);
 	vector <Line> lines;
 	vector <ofPoint> points;
 
+private:
 	int stepSize = 15;
-	float maxDistance = 40.0;
+	float influence = 40.0f;
 };

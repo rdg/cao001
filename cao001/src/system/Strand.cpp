@@ -64,13 +64,35 @@ void Strand::extendLine()
 	// connect them all
 	for (auto point : points) {
 		float dist = (point - end).length();
-		if (dist < maxDistance) {
+		if (dist < influence) {
 			Line lineTemp;
 			lineTemp.start.set(end);
 			lineTemp.end.set(point);
 			lines.push_back(lineTemp);
 		}
 	}
+}
+
+void Strand::reset()
+{
+	lines.clear();
+	points.clear();
+	addLine();
+}
+
+void Strand::setInfluence(float value)
+{
+	if (value >= 0) {
+		influence = value;
+	}
+	else {
+		influence = 0;
+	}
+}
+
+const float & Strand::getInfluence()
+{
+	return influence;
 }
 
 const ofPoint & Strand::getPoint(int offset)

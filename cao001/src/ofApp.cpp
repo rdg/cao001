@@ -48,16 +48,19 @@ void ofApp::draw() {
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key) {
 	if (key == '+') {
-		maxDistance += 10;
+		strand.setInfluence(strand.getInfluence() + 10);
 	}
-	if (key == '-') {
-		maxDistance -= 10;
+	else if (key == '-') {
+		strand.setInfluence(strand.getInfluence() - 10);
 	}
-	if (key == 'c') {
+	else if (key == 'c') {
 		camEnabled *= -1;
 	}
-	if (key == 'f') {
+	else if (key == 'f') {
 		followEnabled *= -1;
+	}
+	else if (key == 'r') {
+		strand.reset();
 	}
 }
 

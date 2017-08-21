@@ -30,21 +30,18 @@ void ofApp::draw() {
 
 	cam.begin();
 	strand.render();
-	//if (followEnabled == 1) {
-	//	ofPoint target = drawnPoints[drawnPoints.size() - 1];
-	//	ofPoint eye;
-	//	if (drawnPoints.size() > 100) {
-	//		eye = drawnPoints[drawnPoints.size() - 90];
-	//	}
-	//	else {
-	//		eye = cam.getPosition();
-	//	}
-	//	ofNode currTarget = cam.getTarget();
-	//	ofPoint offset = target - currTarget.getPosition();
-	//	cam.setTarget(currTarget.getPosition() + offset * 0.01);
-	//	offset = (eye - cam.getPosition()) * 0.01;
-	//	cam.setPosition(cam.getPosition() + offset);
-	//}
+	if (followEnabled == 1) {
+		// collect points from strand
+		ofPoint target = strand.getPoint(1);
+		ofPoint eye = strand.getPoint(90);
+		// collect camera
+		ofNode currTarget = cam.getTarget();
+		// ease towards
+		ofPoint offset = target - currTarget.getPosition();
+		cam.setTarget(currTarget.getPosition() + offset * 0.01);
+		offset = (eye - cam.getPosition()) * 0.01;
+		cam.setPosition(cam.getPosition() + offset);
+	}
 	cam.end();
 }
 

@@ -17,6 +17,7 @@ public:
 	void render();
 	void addLine();
 	void extendLine();
+	const ofPoint & getPoint(int offset);
 	vector <Line> lines;
 	vector <ofPoint> points;
 

@@ -72,3 +72,13 @@ void Strand::extendLine()
 		}
 	}
 }
+
+const ofPoint & Strand::getPoint(int offset)
+{
+
+	if (points.size() > offset) {
+		return points[points.size() - offset];
+	}
+	return points[0];
+}
+
